@@ -38,28 +38,33 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func restartButtonTapped(_ sender: UIButton) {
-        
+        self.goToFirstState()
+        gameboard.clear()
+        gameboardView.clear()
     }
     
-    private func goToFirstState() {
-        self.currentState = PlayerInputState(player: .first,
+  private func goToFirstState() {
+        let player = Player.first
+        self.currentState = PlayerInputState(player: player,
+                                             markViewPrototype: player.markViewPrototype,
                                              gameViewController: self,
                                              gameboard: gameboard,
                                              gameboardView: gameboardView)
     }
 
     private func goToNextState() {
-          if let winner = self.referee.determineWinner() {
-              self.currentState = GameEndedState(winner: winner, gameViewController: self)
-              return
-          }
-          if let playerInputState = currentState as? PlayerInputState {
-              self.currentState = PlayerInputState(player: playerInputState.player.next,
-                                                   gameViewController: self,
-                                                   gameboard: gameboard,
-                                                   gameboardView: gameboardView)
-          }
-
+        if let winner = self.referee.determineWinner() {
+            self.currentState = GameEndedState(winner: winner, gameViewController: self)
+            return
+        }
+        if let playerInputState = currentState as? PlayerInputState {
+            let player = playerInputState.player.next
+            self.currentState = PlayerInputState(player: player,
+                                                 markViewPrototype: player.markViewPrototype,
+                                                 gameViewController: self,
+                                                 gameboard: gameboard,
+                                                 gameboardView: gameboardView)
+        }
     }
 }
 
