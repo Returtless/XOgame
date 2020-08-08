@@ -14,6 +14,8 @@
 		5285A67124DE96BD00DAC08F /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5285A67024DE96BD00DAC08F /* LogCommand.swift */; };
 		5285A67324DE96FF00DAC08F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5285A67224DE96FF00DAC08F /* Logger.swift */; };
 		5285A67524DE973500DAC08F /* LoggerInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5285A67424DE973500DAC08F /* LoggerInvoker.swift */; };
+		5285A67724DE9B5B00DAC08F /* StartGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5285A67624DE9B5B00DAC08F /* StartGameViewController.swift */; };
+		5285A67924DE9FB600DAC08F /* AIInputState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5285A67824DE9FB600DAC08F /* AIInputState.swift */; };
 		F874E4712224621100364CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874E4702224621100364CAE /* AppDelegate.swift */; };
 		F874E4732224621100364CAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874E4722224621100364CAE /* GameViewController.swift */; };
 		F874E4762224621100364CAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F874E4742224621100364CAE /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		5285A67024DE96BD00DAC08F /* LogCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCommand.swift; sourceTree = "<group>"; };
 		5285A67224DE96FF00DAC08F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		5285A67424DE973500DAC08F /* LoggerInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerInvoker.swift; sourceTree = "<group>"; };
+		5285A67624DE9B5B00DAC08F /* StartGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameViewController.swift; sourceTree = "<group>"; };
+		5285A67824DE9FB600DAC08F /* AIInputState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIInputState.swift; sourceTree = "<group>"; };
 		F874E46D2224621100364CAE /* XO-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XO-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F874E4702224621100364CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F874E4722224621100364CAE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,17 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
+		5285A67A24DEBCA400DAC08F /* State */ = {
+			isa = PBXGroup;
+			children = (
+				5285A66724DE892500DAC08F /* GameState.swift */,
+				5285A66B24DE8A1600DAC08F /* GameEndedState.swift */,
+				5285A66924DE894B00DAC08F /* PlayerInputState.swift */,
+				5285A67824DE9FB600DAC08F /* AIInputState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 		F874E4642224621100364CAE = {
 			isa = PBXGroup;
 			children = (
@@ -99,16 +114,15 @@
 			children = (
 				F874E4702224621100364CAE /* AppDelegate.swift */,
 				F874E4722224621100364CAE /* GameViewController.swift */,
+				5285A67624DE9B5B00DAC08F /* StartGameViewController.swift */,
 				F874E4F02225DFF700364CAE /* Referee.swift */,
 				F874E4E62225CB3F00364CAE /* Models */,
 				F874E4E52225CB3100364CAE /* Views */,
 				F874E4772224621300364CAE /* Assets.xcassets */,
 				F874E4742224621100364CAE /* Main.storyboard */,
-				5285A66724DE892500DAC08F /* GameState.swift */,
-				5285A66B24DE8A1600DAC08F /* GameEndedState.swift */,
+				5285A67A24DEBCA400DAC08F /* State */,
 				5285A66F24DE96AD00DAC08F /* Logger */,
 				F874E4792224621300364CAE /* LaunchScreen.storyboard */,
-				5285A66924DE894B00DAC08F /* PlayerInputState.swift */,
 				F874E47C2224621300364CAE /* Info.plist */,
 			);
 			path = "XO-game";
@@ -215,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5285A67724DE9B5B00DAC08F /* StartGameViewController.swift in Sources */,
 				5285A66C24DE8A1600DAC08F /* GameEndedState.swift in Sources */,
 				5285A66A24DE894B00DAC08F /* PlayerInputState.swift in Sources */,
 				F874E4732224621100364CAE /* GameViewController.swift in Sources */,
@@ -230,6 +245,7 @@
 				F874E4E42225CB0700364CAE /* XView.swift in Sources */,
 				5285A66824DE892500DAC08F /* GameState.swift in Sources */,
 				5285A67124DE96BD00DAC08F /* LogCommand.swift in Sources */,
+				5285A67924DE9FB600DAC08F /* AIInputState.swift in Sources */,
 				5285A66E24DE968D00DAC08F /* LogAction.swift in Sources */,
 				F874E4DB2225C1AC00364CAE /* GameboardView.swift in Sources */,
 				F874E4EF2225DE4500364CAE /* Player.swift in Sources */,

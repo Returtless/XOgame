@@ -38,11 +38,12 @@ public class PlayerInputState: GameState {
         self.gameViewController?.winnerLabel.isHidden = true
     }
     
-    public func addMark(at position: GameboardPosition) {
-        Log(.playerInput(player: self.player, position: position))
-       guard let gameboardView = self.gameboardView
+    public func addMark(at position: GameboardPosition?) {
+        guard let gameboardView = self.gameboardView, let position = position
             , gameboardView.canPlaceMarkView(at: position)
             else { return }
+        
+        Log(.playerInput(player: self.player, position: position))
         
         self.gameboard?.setPlayer(self.player, at: position)
         self.gameboardView?.placeMarkView(self.markViewPrototype.copy(), at: position)

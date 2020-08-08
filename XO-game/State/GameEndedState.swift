@@ -33,7 +33,7 @@ public class GameEndedState: GameState {
         self.gameViewController?.secondPlayerTurnLabel.isHidden = true
     }
     
-    public func addMark(at position: GameboardPosition) { }
+    public func addMark(at position: GameboardPosition?) { }
     
     private func winnerName(from winner: Player) -> String {
         switch winner {
