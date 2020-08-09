@@ -1,14 +1,14 @@
 //
-//  PlayerInputState.swift
+//  FiveMovesState.swift
 //  XO-game
 //
 //  Created by Владислав Лихачев on 08.08.2020.
 //  Copyright © 2020 plasmon. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-public class PlayerInputState: GameState {
+public class FiveMovesState: GameState {
     
     public private(set) var isCompleted = false
     
@@ -39,22 +39,23 @@ public class PlayerInputState: GameState {
     }
     
     public func addMark(at position: GameboardPosition?) {
-        guard let gameboardView = self.gameboardView, let position = position
-            , gameboardView.canPlaceMarkView(at: position)
+        guard let position = position
             else { return }
         
         Log(.playerInput(player: self.player, position: position))
         
+        gameboard?.addPositionToMoves(for: player, at: position)
+        self.gameboardView?.placeMarkView(self.markViewPrototype.copy(), at: position)
         if player == .first {
-        let command = DrawCommand(action: .playerXDraw(position: position), gameboard: self.gameboard!, gameboardView: self.gameboardView!)
+            let command = DrawCommand(action: .playerXDraw(position: position), gameboard: self.gameboard!, gameboardView: self.gameboardView!)
             DrawInvoker.shared.addDrawCommand(for: player, command)
         } else {
             let command = DrawCommand(action: .playerODraw(position: position), gameboard: self.gameboard!, gameboardView: self.gameboardView!)
             DrawInvoker.shared.addDrawCommand(for: player, command)
+            
         }
-        
-        self.gameboard?.setPlayer(self.player, at: position)
-        //self.gameboardView?.placeMarkView(self.markViewPrototype.copy(), at: position)
-        self.isCompleted = true
+        if (gameboard?.isFullMoves(for: player))! {
+            isCompleted = true
+        }
     }
 }

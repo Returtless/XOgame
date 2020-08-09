@@ -14,6 +14,9 @@ public final class Gameboard {
     
     private lazy var positions: [[Player?]] = initialPositions()
     
+    private(set) var playerOneMoves: [GameboardPosition] = []
+    private(set) var playerTwoMoves: [GameboardPosition] = []
+    
     // MARK: - public
     
     public func setPlayer(_ player: Player, at position: GameboardPosition) {
@@ -22,6 +25,8 @@ public final class Gameboard {
     
     public func clear() {
         self.positions = initialPositions()
+        self.playerOneMoves = []
+        self.playerTwoMoves = []
     }
     
     public func contains(player: Player, at positions: [GameboardPosition]) -> Bool {
@@ -38,6 +43,23 @@ public final class Gameboard {
         return positions[column][row] == player
     }
     
+    public func addPositionToMoves(for player : Player, at position: GameboardPosition){
+        switch player {
+        case .first:
+            playerOneMoves.append(position)
+        case .second:
+            playerTwoMoves.append(position)
+            
+        }
+    }
+    public func isFullMoves(for player: Player) -> Bool{
+        switch player {
+        case .first:
+            return playerOneMoves.count == 5
+        case .second:
+           return playerTwoMoves.count == 5
+        }
+    }
     // MARK: - Private
     
     private func initialPositions() -> [[Player?]] {

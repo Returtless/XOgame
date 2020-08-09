@@ -28,6 +28,12 @@ class StartGameViewController: UIViewController {
         gameVC.isAiGame = true
         present(gameVC, animated: true, completion: nil)
     }
+    
+    @IBAction func startFiveMovesGame(_ sender: UIButton) {
+        let gameVC = storyboard?.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+               gameVC.isFiveMoves = true
+               present(gameVC, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

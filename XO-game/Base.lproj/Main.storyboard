@@ -42,6 +42,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtL-KE-lJL">
+                                <rect key="frame" x="103" y="493.5" width="169" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Игра по 5 ходов">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="startFiveMovesGame:" destination="tmo-2A-aY3" eventType="touchUpInside" id="PEp-jk-9N6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -50,6 +60,8 @@
                             <constraint firstItem="dY8-yg-XNN" firstAttribute="top" secondItem="JRm-oQ-Q32" secondAttribute="bottom" constant="100" id="LOj-yQ-MYb"/>
                             <constraint firstItem="TiJ-AY-mDw" firstAttribute="top" secondItem="dY8-yg-XNN" secondAttribute="bottom" constant="50" id="RHf-Ng-xl7"/>
                             <constraint firstItem="dY8-yg-XNN" firstAttribute="centerX" secondItem="9RS-xR-Cxg" secondAttribute="centerX" id="X98-d9-K4h"/>
+                            <constraint firstItem="KtL-KE-lJL" firstAttribute="centerX" secondItem="9RS-xR-Cxg" secondAttribute="centerX" id="Yec-UR-bdT"/>
+                            <constraint firstItem="KtL-KE-lJL" firstAttribute="top" secondItem="TiJ-AY-mDw" secondAttribute="bottom" constant="50" id="gEx-Ez-udk"/>
                             <constraint firstItem="dY8-yg-XNN" firstAttribute="centerY" secondItem="9RS-xR-Cxg" secondAttribute="centerY" id="oRR-bL-ECE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yPa-0e-CrG"/>
